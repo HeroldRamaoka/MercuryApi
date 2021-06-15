@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercuryApi", "MercuryApi.csproj", "{C98FBB3C-B6FA-4E98-90AE-AB426E8C3423}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C98FBB3C-B6FA-4E98-90AE-AB426E8C3423}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C98FBB3C-B6FA-4E98-90AE-AB426E8C3423}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C98FBB3C-B6FA-4E98-90AE-AB426E8C3423}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C98FBB3C-B6FA-4E98-90AE-AB426E8C3423}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DE1F744A-DE2F-409A-B1A6-1998A114B228}
+	EndGlobalSection
+EndGlobal
