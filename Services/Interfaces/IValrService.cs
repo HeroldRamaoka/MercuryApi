@@ -1,13 +1,12 @@
-﻿using MercuryApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using MercuryApi.Models;
+using Refit;
 
 namespace MercuryApi.Services.Interfaces
 {
-    interface IValrService
+    public interface IValrService
     {
-        Task<ValrExchange> GetValrValue();
+        [Get("/{zarbid}/marketsummary")]
+        Task<ValrExchange> GetValrValue(string zarbid);
     }
 }

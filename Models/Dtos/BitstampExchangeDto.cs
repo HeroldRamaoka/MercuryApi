@@ -1,6 +1,6 @@
-﻿namespace MercuryApi.Models
+﻿namespace MercuryAp.Models.Dtos
 {
-    public class BitstampExchange
+    public class BitstampExchangeDto
     {
         public string High { get; set; }
         public string Last { get; set; }
@@ -11,6 +11,5 @@
         public string Low { get; set; }
         public string Ask { get; set; }
         public string Open { get; set; }
-
     }
 }

@@ -1,3 +1,7 @@
+using MercuryApi.Config;
+using MercuryApi.Models.MercuryMapper;
+using MercuryApi.Services.Implementations;
+using MercuryApi.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +36,14 @@ namespace MercuryApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MercuryApi", Version = "v1" });
             });
+
+            services.Configure<BaseUrls>(option => Configuration.GetSection("BaseUrls").Bind(option));
+            services.Configure<ApiKey>(option => Configuration.GetSection("ApiKey").Bind(option));
+            services.AddAutoMapper(typeof(MercuryMappings));
+
+            services.AddTransient<IBitstampService, BitstampService>();
+            services.AddTransient<IValrService, ValrService>();
+            services.AddTransient<IExchangeRateService, ExchangeRateService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

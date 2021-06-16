@@ -6,6 +6,26 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="Refit" Version="6.0.38" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Refit" />
+    <None Remove="Services\Implementations\" />
+    <None Remove="Config\" />
+    <None Remove="Newtonsoft.Json" />
+    <None Remove="Models\Dtos\" />
+    <None Remove="AutoMapper" />
+    <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+    <None Remove="Models\MercuryMapper\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\Implementations\" />
+    <Folder Include="Config\" />
+    <Folder Include="Models\Dtos\" />
+    <Folder Include="Models\MercuryMapper\" />
+  </ItemGroup>
 </Project>

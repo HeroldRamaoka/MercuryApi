@@ -1,6 +1,6 @@
-﻿namespace MercuryApi.Models
+﻿namespace MercuryApi.Models.Dtos
 {
-    public class ValrExchange
+    public class ValrExchangeDto
     {
         public string CurrencyPair { get; set; }
         public string AskPrice { get; set; }
