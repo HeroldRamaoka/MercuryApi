@@ -3,14 +3,15 @@
 This is a web api application to calculate Bitstamp-VALR Bitcoin and XRP Arbitrage
 
 Tools Used
-C#
-.Net 5.0 
-Refit
+
+1. C#
+2. .Net 5.0 
+3. Refit
 
 How to run the app
-Clone the project/ download zipped
-Open using preffered IDE 
-clean and rebuild the solution
-You are good to go, run the app
+1. Clone the project/ download zipped
+2. Open using preffered IDE 
+3. clean and rebuild the solution
+4. You are good to go, run the app
 
-Test the api from swaggerUI
+5. sTest the api from swaggerUI
