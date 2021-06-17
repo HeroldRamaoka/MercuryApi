@@ -12,6 +12,9 @@ using Microsoft.Extensions.Options;
 
 namespace MercuryApi.Controllers
 {
+    /// <summary>
+    /// Valr APi Controller
+    /// </summary>
     [ApiController]
     [Route("api/[controller]")]
     public class ValrController : ControllerBase

@@ -10,6 +10,9 @@ using Microsoft.Extensions.Options;
 
 namespace MercuryApi.Controllers
 {
+    /// <summary>
+    /// Bitstamp APi Controller
+    /// </summary>
     [ApiController]
     [Route("api/[controller]")]
     public class BitstampController : ControllerBase

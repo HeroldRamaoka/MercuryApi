@@ -3,8 +3,6 @@ using MercuryApi.Config;
 using MercuryApi.Models;
 using MercuryApi.Services.Interfaces;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using Refit;
 
 namespace MercuryApi.Services.Implementations
