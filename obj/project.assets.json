@@ -609,28 +609,31 @@
     ]
   },
   "packageFolders": {
-    "/Users/heroldramaoka/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\pc\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/heroldramaoka/Desktop/Project/MercuryApi/MercuryApi.csproj",
+      "projectUniqueName": "C:\\Users\\pc\\Desktop\\Projects\\MercuryApi\\MercuryApi.csproj",
       "projectName": "MercuryApi",
-      "projectPath": "/Users/heroldramaoka/Desktop/Project/MercuryApi/MercuryApi.csproj",
-      "packagesPath": "/Users/heroldramaoka/.nuget/packages/",
-      "outputPath": "/Users/heroldramaoka/Desktop/Project/MercuryApi/obj/",
+      "projectPath": "C:\\Users\\pc\\Desktop\\Projects\\MercuryApi\\MercuryApi.csproj",
+      "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pc\\Desktop\\Projects\\MercuryApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "/Users/heroldramaoka/.config/NuGet/NuGet.Config"
+        "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -692,7 +695,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.301/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

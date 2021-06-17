@@ -469,7 +469,11 @@
           "lib/netcoreapp3.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
         }
       },
-      "System.Net.Http.Json/5.0.0": {},
+      "System.Net.Http.Json/5.0.0": {
+        "compile": {
+          "lib/net5.0/System.Net.Http.Json.dll": {}
+        }
+      },
       "System.Reflection.Emit/4.7.0": {},
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
         "compile": {

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using MercuryAp.Models.Dtos;
 using MercuryApi.Config;
+using MercuryApi.Helper;
 using MercuryApi.Models;
 using MercuryApi.Models.Dtos;
 using MercuryApi.Services.Interfaces;
@@ -34,12 +35,12 @@ namespace MercuryApi.Controllers
         [HttpGet("calculateXrpArbitrage")]
         public async Task<ActionResult> CalculateXrpArbitrage()
         {
-            var bitstampExchange = await _bitstampService.GetBitstampValue("xrpusd");
-            var valrExchange = await _valrService.GetValrValue("XRPZAR");
+            var bitstampExchange = await _bitstampService.GetBitstampValue(Const.xrpusd);
+            var valrExchange = await _valrService.GetValrValue(Const.XRPZAR);
             var exchangeRate = await _exchangeRateService.GetExchangeRate(_options.Value.Key);
 
 
-            var arbitrage = Convert.ToDouble(valrExchange.BidPrice) / (Convert.ToDouble(bitstampExchange.Ask) * exchangeRate.conversion_rate);
+            var arbitrage = Convert.ToDouble(valrExchange.BidPrice) / (Convert.ToDouble(bitstampExchange.Ask) * exchangeRate.ConversionRate);
 
             var jsonResponse = new JsonResponse()
             {

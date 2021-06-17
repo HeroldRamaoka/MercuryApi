@@ -3,6 +3,8 @@ using MercuryApi.Config;
 using MercuryApi.Models;
 using MercuryApi.Services.Interfaces;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using Refit;
 
 namespace MercuryApi.Services.Implementations
@@ -15,7 +17,17 @@ namespace MercuryApi.Services.Implementations
         public ExchangeRateService(IOptions<BaseUrls> options)
         {
             _options = options;
-            _exchangeRateService = RestService.For<IExchangeRateService>(_options.Value.ExchangeRateBaseUrl);
+            _exchangeRateService = RestService.For<IExchangeRateService>(_options.Value.ExchangeRateBaseUrl,
+                new RefitSettings
+                {
+                    ContentSerializer = new NewtonsoftJsonContentSerializer(
+                    new JsonSerializerSettings
+                    {
+
+                        ContractResolver = new DefaultContractResolver { NamingStrategy = new SnakeCaseNamingStrategy() }
+                    }
+                )
+                });
         }
 
         public async Task<ExchangeRate> GetExchangeRate(string apiKey)

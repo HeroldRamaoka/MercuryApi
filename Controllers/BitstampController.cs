@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using MercuryAp.Models.Dtos;
 using MercuryApi.Config;
+using MercuryApi.Helper;
 using MercuryApi.Models;
 using MercuryApi.Models.Dtos;
 using MercuryApi.Services.Interfaces;
@@ -23,8 +24,11 @@ namespace MercuryApi.Controllers
 
         public JsonResponseDto JsonResponseDto { get; set; }
 
-        public BitstampController(IBitstampService bitstampService, IValrService valrService, IMapper mapper,
-                                  IExchangeRateService exchangeRateService, IOptions<ApiKey> options)
+        public BitstampController(IBitstampService bitstampService, 
+                                  IValrService valrService, 
+                                  IMapper mapper,
+                                  IExchangeRateService exchangeRateService, 
+                                  IOptions<ApiKey> options)
         {
             _bitstampService = bitstampService;
             _valrService = valrService;
@@ -36,18 +40,18 @@ namespace MercuryApi.Controllers
         [HttpGet("calculateBitstampArbitrage")]
         public async Task<ActionResult> CalculateBitstampArbitrage()
         {
-            var bitstampExchange = await _bitstampService.GetBitstampValue("btcusd");
-            var valrExchange = await _valrService.GetValrValue("BTCZAR");
+            var bitstampExchange = await _bitstampService.GetBitstampValue(Const.btcusd);
+            var valrExchange = await _valrService.GetValrValue(Const.BTCZAR);
             var exchangeRate = await _exchangeRateService.GetExchangeRate(_options.Value.Key);
 
-            var arbitrage = Convert.ToDouble(valrExchange.BidPrice) / (Convert.ToDouble(bitstampExchange.Ask) * exchangeRate.conversion_rate);
+            //var arbitrage = float.Parse(valrExchange.BidPrice) / (float.Parse(bitstampExchange.Ask) * exchangeRate.conversion_rate);
 
             var jsonResponse = new JsonResponse()
             {
                 BitstampExchange = bitstampExchange,
                 ValrExchange = valrExchange,
-                ExchangeRate = exchangeRate,
-                Arbitrage = arbitrage
+                ExchangeRate = exchangeRate
+                //Arbitrage = arbitrage
             };
 
             var result = _mapper.Map<JsonResponseDto>(jsonResponse);
