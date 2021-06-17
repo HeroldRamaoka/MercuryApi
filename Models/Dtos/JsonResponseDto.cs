@@ -1,10 +1,12 @@
-﻿namespace MercuryApi.Models.Dtos
+﻿using MercuryAp.Models.Dtos;
+
+namespace MercuryApi.Models.Dtos
 {
     public class JsonResponseDto
     {
-        public BitstampExchange BitstampExchange { get; set; }
-        public ExchangeRate ExchangeRate { get; set; }
-        public ValrExchange ValrExchange { get; set; }
+        public BitstampExchangeDto BitstampExchange { get; set; }
+        public ExchangeRateDto ExchangeRate { get; set; }
+        public ValrExchangeDto ValrExchange { get; set; }
         public double Arbitrage { get; set; }
     }
 }

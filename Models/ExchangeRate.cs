@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace MercuryApi.Models
 {
+    [JsonObject(NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public class ExchangeRate
     {
         public string Result { get; set; }
@@ -13,7 +15,7 @@ namespace MercuryApi.Models
         [JsonProperty(PropertyName = "time_last_update_utc")]
         public string TimeLastUpdateUtc { get; set; }
         [JsonProperty("time_next_update_unix")]
-        public string TimeNextUpdateUnix { get; set; }
+        public string timenextupdateunixs { get; set; }
         [JsonProperty(PropertyName = "base_code")]
         public string base_code { get; set; }
         public string time_next_update_utc { get; set; }

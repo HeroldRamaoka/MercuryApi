@@ -1,11 +1,10 @@
-﻿using System;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using MercuryApi.Config;
 using MercuryApi.Models;
 using MercuryApi.Services.Interfaces;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using Refit;
 
 namespace MercuryApi.Services.Implementations
@@ -18,20 +17,21 @@ namespace MercuryApi.Services.Implementations
         public BitstampService(IOptions<BaseUrls> options)
         {
             _options = options;
-            _bitstampService = RestService.For<IBitstampService>(_options.Value.BitstampBaseUrl);
+            _bitstampService = RestService.For<IBitstampService>(_options.Value.BitstampBaseUrl,
+                new RefitSettings
+                {
+                    ContentSerializer = new NewtonsoftJsonContentSerializer(
+                    new JsonSerializerSettings
+                    {
+
+                    ContractResolver = new DefaultContractResolver { NamingStrategy = new SnakeCaseNamingStrategy() }
+        }
+                )});
         }
 
         public async Task<BitstampExchange> GetBitstampValue(string usdAsk)
         {
-            try
-            {
-                return await _bitstampService.GetBitstampValue(usdAsk);
-                
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            return await _bitstampService.GetBitstampValue(usdAsk);
         }
     }
 }

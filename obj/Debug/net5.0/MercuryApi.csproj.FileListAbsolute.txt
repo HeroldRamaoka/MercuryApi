@@ -58,3 +58,6 @@ C:/Users/pc/Desktop/Projects/MercuryApi/obj/Debug/net5.0/MercuryApi.genruntimeco
 /Users/heroldramaoka/Desktop/Project/MercuryApi/obj/Debug/net5.0/ref/MercuryApi.dll
 /Users/heroldramaoka/Desktop/Project/MercuryApi/obj/Debug/net5.0/MercuryApi.pdb
 /Users/heroldramaoka/Desktop/Project/MercuryApi/obj/Debug/net5.0/MercuryApi.genruntimeconfig.cache
+/Users/heroldramaoka/Desktop/Project/MercuryApi/bin/Debug/net5.0/testgenerator.json
+/Users/heroldramaoka/Desktop/Project/MercuryApi/bin/Debug/net5.0/Refit.Newtonsoft.Json.dll
+/Users/heroldramaoka/Desktop/Project/MercuryApi/obj/Debug/net5.0/MercuryApi.csproj.AssemblyReference.cache

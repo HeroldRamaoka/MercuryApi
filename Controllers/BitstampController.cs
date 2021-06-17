@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
+using AutoMapper;
+using MercuryAp.Models.Dtos;
 using MercuryApi.Config;
 using MercuryApi.Models;
+using MercuryApi.Models.Dtos;
 using MercuryApi.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -16,14 +19,18 @@ namespace MercuryApi.Controllers
         readonly IValrService _valrService;
         readonly IExchangeRateService _exchangeRateService;
         readonly IOptions<ApiKey> _options;
+        readonly IMapper _mapper;
 
-        public BitstampController(IBitstampService bitstampService, IValrService valrService,
+        public JsonResponseDto JsonResponseDto { get; set; }
+
+        public BitstampController(IBitstampService bitstampService, IValrService valrService, IMapper mapper,
                                   IExchangeRateService exchangeRateService, IOptions<ApiKey> options)
         {
             _bitstampService = bitstampService;
             _valrService = valrService;
             _exchangeRateService = exchangeRateService;
             _options = options;
+            _mapper = mapper;
         }
 
         [HttpGet("calculateBitstampArbitrage")]
@@ -43,7 +50,9 @@ namespace MercuryApi.Controllers
                 Arbitrage = arbitrage
             };
 
-            return Ok(jsonResponse);
+            var result = _mapper.Map<JsonResponseDto>(jsonResponse);
+
+            return Ok(result);
         }
     }
 }
