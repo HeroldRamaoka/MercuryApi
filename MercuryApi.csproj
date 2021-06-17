@@ -6,6 +6,48 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="Refit" Version="6.0.38" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="Refit.Newtonsoft.Json" Version="6.0.38" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Refit" />
+    <None Remove="Services\Implementations\" />
+    <None Remove="Config\" />
+    <None Remove="Newtonsoft.Json" />
+    <None Remove="Models\Dtos\" />
+    <None Remove="AutoMapper" />
+    <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+    <None Remove="Models\MercuryMapper\" />
+    <None Remove="Refit.Newtonsoft.Json" />
+    <None Remove="UnitTests\obj\UnitTests.csproj.nuget.g.props" />
+    <None Remove="UnitTests\obj\UnitTests.csproj.nuget.g.targets" />
+    <None Remove="UnitTests\obj\project.nuget.cache" />
+    <None Remove="MercuryApi.UnitTests\obj\MercuryApi.UnitTests.csproj.nuget.g.props" />
+    <None Remove="MercuryApi.UnitTests\obj\project.nuget.cache" />
+    <None Remove="MercuryApi.UnitTests\obj\MercuryApi.UnitTests.csproj.nuget.g.targets" />
+    <None Remove="MercuryApi.UnitTests\obj\Debug\net5.0\MercuryApi.UnitTests.assets.cache" />
+    <None Remove="MercuryApi.UnitTests\obj\Debug\net5.0\MercuryApi.UnitTests.csproj.FileListAbsolute.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\Implementations\" />
+    <Folder Include="Config\" />
+    <Folder Include="Models\Dtos\" />
+    <Folder Include="Models\MercuryMapper\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="UnitTests\UnitTest1.cs" />
+    <Compile Remove="MercuryApi.UnitTests\Controllers\BitstampControllerTests\CalculateBitcoinStampArbitrageShould.cs" />
+    <Compile Remove="MercuryApi.UnitTests\UnitTest1.cs" />
+    <Compile Remove="MercuryApi.UnitTests\obj\Debug\net5.0\.NETCoreApp,Version=v5.0.AssemblyAttributes.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="UnitTests\obj\project.assets.json" />
+    <Content Remove="UnitTests\obj\UnitTests.csproj.nuget.dgspec.json" />
+    <Content Remove="MercuryApi.UnitTests\obj\MercuryApi.UnitTests.csproj.nuget.dgspec.json" />
+    <Content Remove="MercuryApi.UnitTests\obj\project.assets.json" />
+  </ItemGroup>
 </Project>
