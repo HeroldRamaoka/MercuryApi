@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/heroldramaoka/Desktop/Project/MercuryApi/MercuryApi.csproj": {}
+    "/Users/heroldramaoka/Desktop/Project/MercuryApi/MercuryApi/MercuryApi.csproj": {}
   },
   "projects": {
-    "/Users/heroldramaoka/Desktop/Project/MercuryApi/MercuryApi.csproj": {
+    "/Users/heroldramaoka/Desktop/Project/MercuryApi/MercuryApi/MercuryApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/heroldramaoka/Desktop/Project/MercuryApi/MercuryApi.csproj",
+        "projectUniqueName": "/Users/heroldramaoka/Desktop/Project/MercuryApi/MercuryApi/MercuryApi.csproj",
         "projectName": "MercuryApi",
-        "projectPath": "/Users/heroldramaoka/Desktop/Project/MercuryApi/MercuryApi.csproj",
+        "projectPath": "/Users/heroldramaoka/Desktop/Project/MercuryApi/MercuryApi/MercuryApi.csproj",
         "packagesPath": "/Users/heroldramaoka/.nuget/packages/",
-        "outputPath": "/Users/heroldramaoka/Desktop/Project/MercuryApi/obj/",
+        "outputPath": "/Users/heroldramaoka/Desktop/Project/MercuryApi/MercuryApi/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

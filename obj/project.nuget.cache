@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DS4gJa5yzj95u0NT7++OdJRRFbWk1p5JiAnkMCOMLP3sZUveIkOzs53s54luMw+qcvDmLq5RHzy2ycenUAknPg==",
+  "dgSpecHash": "u8z1XJOE98IZFqf/DZ63WklzIBLaFwRpUGMXsC+e5IV/A5JTp8ZbeYbkTFgQhbtUNxJDdX1m+yVIa9elfRBuqQ==",
   "success": true,
-  "projectFilePath": "/Users/heroldramaoka/Desktop/Project/MercuryApi/MercuryApi.csproj",
+  "projectFilePath": "/Users/heroldramaoka/Desktop/Project/MercuryApi/MercuryApi/MercuryApi.csproj",
   "expectedPackageFiles": [
     "/Users/heroldramaoka/.nuget/packages/automapper/10.1.1/automapper.10.1.1.nupkg.sha512",
     "/Users/heroldramaoka/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/8.1.1/automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
