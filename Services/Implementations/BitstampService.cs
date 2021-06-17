@@ -17,21 +17,19 @@ namespace MercuryApi.Services.Implementations
         public BitstampService(IOptions<BaseUrls> options)
         {
             _options = options;
-            _bitstampService = RestService.For<IBitstampService>(_options.Value.BitstampBaseUrl,
-                new RefitSettings
-                {
-                    ContentSerializer = new NewtonsoftJsonContentSerializer(
-                    new JsonSerializerSettings
-                    {
-
-                    ContractResolver = new DefaultContractResolver { NamingStrategy = new SnakeCaseNamingStrategy() }
-        }
-                )});
+            _bitstampService = RestService.For<IBitstampService>(_options.Value.BitstampBaseUrl);
         }
 
         public async Task<BitstampExchange> GetBitstampValue(string usdAsk)
         {
-            return await _bitstampService.GetBitstampValue(usdAsk);
+            try
+            {
+                return await _bitstampService.GetBitstampValue(usdAsk);
+            }
+            catch
+            {
+                throw new System.Exception();
+            }
         }
     }
 }

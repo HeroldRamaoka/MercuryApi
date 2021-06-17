@@ -20,7 +20,14 @@ namespace MercuryApi.Services.Implementations
 
         public async Task<ValrExchange> GetValrValue(string zarbid)
         {
-            return await _valrService.GetValrValue(zarbid);
+            try
+            {
+                return await _valrService.GetValrValue(zarbid);
+            }
+            catch
+            {
+                throw new System.Exception();
+            }
         }
     }
 }

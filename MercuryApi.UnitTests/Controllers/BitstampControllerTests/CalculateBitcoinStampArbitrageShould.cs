@@ -1,9 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoMapper;
+using MercuryAp.Models.Dtos;
 using MercuryApi.Config;
 using MercuryApi.Controllers;
 using MercuryApi.Models;
+using MercuryApi.Models.Dtos;
 using MercuryApi.Services.Interfaces;
 using Microsoft.Extensions.Options;
 using Moq;
@@ -13,14 +14,10 @@ namespace MercuryApi.UnitTests.Controllers.BitstampControllerTests
 {
     public class CalculateBitcoinStampArbitrageShould
     {
-        //readonly IOptions<ApiKey> _ptions;
-
-        //public CalculateBitcoinStampArbitrageShould(IOptions<ApiKey> ptions)
-        //{
-        //    _ptions = ptions;
-        //}
-
-        //IOptions<ApiKey> someOptions = Options.Create<ApiKey>(new ApiKey());
+        ApiKey key = new ApiKey()
+        {
+            Key = "a797108e840338c53aa8febe"
+        };
 
         [Fact]
         public async Task CalculateBitstampArbitrage()
@@ -29,7 +26,7 @@ namespace MercuryApi.UnitTests.Controllers.BitstampControllerTests
             var bitstampService = new Mock<IBitstampService>();
             var valrService = new Mock<IValrService>();
             var exchangeRateService = new Mock<IExchangeRateService>();
-            var options = new Mock<IOptions<ApiKey>>(new ApiKey());
+            var options = new Mock<IOptions<ApiKey>>();
             var mapper = new Mock<IMapper>();
 
             var bitstampExchange = new BitstampExchange()
@@ -49,8 +46,8 @@ namespace MercuryApi.UnitTests.Controllers.BitstampControllerTests
             var exchangeRate = new ExchangeRate()
             {
                 Result = "Success",
-                conversion_rate = 40506.59,
-                base_code = "38361.38"
+                ConversionRate = 40506.59,
+                BaseCode = "38361.38"
             };
 
             var jsonResponse = new JsonResponse
@@ -60,13 +57,43 @@ namespace MercuryApi.UnitTests.Controllers.BitstampControllerTests
                 ExchangeRate = exchangeRate,
             };
 
-            bitstampService.Setup(x => x.GetBitstampValue("btcusd")).ReturnsAsync(bitstampExchange);
-            valrService.Setup(x => x.GetValrValue("BTCZAR")).ReturnsAsync(valrExchange);
-            var resoptions = options.Setup(x => x.Value.Key).Returns("a797108e840338c53aa8febe");
-            exchangeRateService.Setup(x => x.GetExchangeRate(resoptions.ToString())).ReturnsAsync(exchangeRate);
+            var bitstampExchangeDto = new BitstampExchangeDto()
+            {
+                Ask = "38617.62",
+                Open = "40506.59",
+                Last = "38361.38"
+            };
+
+            var valrExchangeDto = new ValrExchangeDto()
+            {
+                AskPrice = "38617.62",
+                BidPrice = "40506.59",
+                HighPrice = "38361.38"
+            };
+
+            var exchangeRateDto = new ExchangeRateDto()
+            {
+                Result = "Success",
+                ConversionRate = 40506.59,
+                BaseCode = "38361.38"
+            };
+
+            var jsonResponseDto = new JsonResponseDto()
+            {
+                BitstampExchange = bitstampExchangeDto,
+                ValrExchange = valrExchangeDto,
+                ExchangeRate = exchangeRateDto,
+            };
+
 
             var controller = new BitstampController(bitstampService.Object, valrService.Object, mapper.Object,
                             exchangeRateService.Object, options.Object);
+
+            options.Setup(x => x.Value).Returns(key);
+            bitstampService.Setup(x => x.GetBitstampValue("btcusd")).ReturnsAsync(bitstampExchange);
+            valrService.Setup(x => x.GetValrValue("BTCZAR")).ReturnsAsync(valrExchange);
+            //mapper.Setup(x => x.Map<JsonResponse>(It.IsAny<JsonResponse>(jsonResponseDto))).Returns(jsonResponseDto);
+            exchangeRateService.Setup(x => x.GetExchangeRate(key.ToString())).ReturnsAsync(exchangeRate);
 
             //Act
             var okResult = await controller.CalculateBitstampArbitrage();

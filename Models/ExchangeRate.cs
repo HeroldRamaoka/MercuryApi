@@ -15,11 +15,14 @@ namespace MercuryApi.Models
         [JsonProperty(PropertyName = "time_last_update_utc")]
         public string TimeLastUpdateUtc { get; set; }
         [JsonProperty("time_next_update_unix")]
-        public string timenextupdateunixs { get; set; }
+        public string TimeNextUpdateUnix { get; set; }
         [JsonProperty(PropertyName = "base_code")]
-        public string base_code { get; set; }
-        public string time_next_update_utc { get; set; }
-        public string target_code { get; set; }
-        public double conversion_rate { get; set; }
+        public string BaseCode { get; set; }
+        [JsonProperty(PropertyName = "time_next_update_utc")]
+        public string TimeNextUpdateUtc { get; set; }
+        [JsonProperty(PropertyName = "target_code")]
+        public string TargetCode { get; set; }
+        [JsonProperty(PropertyName = "conversion_rate")]
+        public double ConversionRate { get; set; }
     }
 }
